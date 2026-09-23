@@ -58,13 +58,13 @@ input,select{font-family:inherit; font-size:14px}
 /* ---------- gate / landing ---------- */
 #gate{min-height:100vh; display:flex; flex-direction:column; background:
   radial-gradient(900px 420px at 12% -8%, #1B2A44 0%, transparent 60%), var(--rail); color:#E8EDF4}
-.gate-top{padding:26px 32px; display:flex; align-items:center; gap:12px}
-.gate-body{flex:1; display:flex; align-items:center; justify-content:center; padding:12px 24px 56px}
-.gate-inner{width:100%; max-width:1020px}
+.gate-top{padding:22px 32px; display:flex; align-items:center; gap:12px}
+.gate-body{flex:1; display:flex; align-items:center; justify-content:center; padding:28px 24px 64px}
+.gate-inner{width:100%; max-width:1020px; padding-bottom:18px}
 .gate-kicker{color:#8FA3BF; font-size:13px; margin-bottom:10px}
 .gate-h{font-size:clamp(28px,4.2vw,44px); line-height:1.08; color:#fff; letter-spacing:-.03em; max-width:18ch}
 .gate-sub{color:#9FB0C6; margin-top:14px; max-width:62ch}
-.steps{display:flex; gap:8px; margin:26px 0 18px; flex-wrap:wrap}
+.steps{display:flex; gap:8px; margin:22px 0 24px; flex-wrap:wrap}
 .step-pill{font-size:12px; color:#7F91A9; border:1px solid #27364B; padding:5px 11px; border-radius:999px}
 .step-pill.on{background:#22314A; border-color:#35496A; color:#DCE6F3}
 .step-pill.done{color:#7ED0B2; border-color:#2A4A40; background:#16302A}
@@ -84,7 +84,7 @@ input,select{font-family:inherit; font-size:14px}
 }
 .opt:hover{background:#1D2A3B; border-color:#41577A; color:#fff}
 .opt.sel{background:var(--brand); border-color:var(--brand); color:#fff}
-.gate-actions{display:flex; gap:10px; align-items:center; margin-top:28px; flex-wrap:wrap}
+.gate-actions{display:flex; gap:12px; align-items:center; margin-top:30px; padding-top:4px; flex-wrap:wrap}
 .gate-note{font-size:12.5px; color:#7F91A9}
 .demo-chip{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#B9E3D1;
   background:#16302A; border:1px solid #2A4A40; padding:5px 11px; border-radius:999px}
@@ -426,10 +426,10 @@ td.r,th.r{text-align:right}
 <!-- ===================== LANDING / SETUP WIZARD ===================== -->
 <section id="gate">
   <div class="gate-top">
-    <div class="logo">TW</div>
+    <div class="logo">HB</div>
     <div>
-      <div style="color:#fff;font-weight:600;font-size:14px">Team Work Solutions</div>
-      <div style="color:#7F91A9;font-size:11.5px">Enterprise Intelligence Platform</div>
+      <div style="color:#fff;font-weight:600;font-size:14px">Global Demo HR Dashboard</div>
+      <div style="color:#7F91A9;font-size:11.5px">Made by Harshit Bhardwaj</div>
     </div>
     <div style="margin-left:auto" class="demo-chip">Demo environment · synthetic data</div>
   </div>
@@ -446,9 +446,9 @@ td.r,th.r{text-align:right}
   <div class="scrim" onclick="document.body.classList.remove('rail-open')"></div>
   <aside class="rail">
     <div class="rail-head">
-      <div class="logo">TW</div>
+      <div class="logo">HB</div>
       <div>
-        <div class="t">Team Work Solutions</div>
+        <div class="t">Global Demo HR Dashboard</div>
         <div class="s">Enterprise Intelligence</div>
       </div>
     </div>
@@ -4215,7 +4215,7 @@ const App = {
 
     const stage = $('#gateStage');
     if (App.gateStep === 0) {
-      stage.innerHTML = `<div class="gate-kicker">Team Work Solutions · portfolio platform</div>
+      stage.innerHTML = `<div class="gate-kicker">Global Demo HR Dashboard · Made by Harshit Bhardwaj</div>
         <h1 class="gate-h">What kind of business are we building this for?</h1>
         <p class="gate-sub">Pick one and the whole platform reshapes — the dashboards on offer, the departments,
           the metrics, even the industries in the next step. Nothing here is a static mock-up.</p>
@@ -4581,7 +4581,7 @@ const Contact = {
     return `Dashboard Requirement — ${BUSINESS[State.scn.biz].label.split(' /')[0]} / ${State.scn.industry} / ${d}`;
   },
   body(channel) {
-    return `Hello Team Work Solutions,\n\nI am interested in a customised business dashboard.\n\nMy requirement:\n\n${requirementLines().join('\n')}\n\nPlease contact me to discuss customisation options.\n\nRegards`;
+    return `Hello Global Demo HR Dashboard,\n\nI am interested in a customised business dashboard.\n\nMy requirement:\n\n${requirementLines().join('\n')}\n\nPlease contact me to discuss customisation options.\n\nRegards`;
   },
   email() {
     audit('Contact — email', requirementLines().join(' | '));
@@ -4791,7 +4791,7 @@ const Export = {
     if (!data.rows.length) { toast('Nothing to export in the current scope', true); return; }
     const cols = Object.keys(data.rows[0]);
     const meta = [
-      `Team Work Solutions — Enterprise Intelligence Platform (demo, synthetic data)`,
+      `Global Demo HR Dashboard — Made by Harshit Bhardwaj (demo, synthetic data)`,
       `Report,${data.name}`,
       `Business type,${BUSINESS[State.scn.biz].label}`,
       `Industry,${State.scn.industry}`,
