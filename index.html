@@ -17,7 +17,10 @@
 
     <header>
         <a href="#hero" class="logo" aria-label="Harshit Bhardwaj home">HB</a>
-        <nav aria-label="Primary navigation">
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="primary-nav" aria-label="Primary navigation">
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#expertise">Expertise</a></li>
@@ -377,5 +380,32 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        (() => {
+            const header = document.querySelector('header');
+            const toggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('#primary-nav');
+            if (!toggle || !nav) return;
+            const closeMenu = () => {
+                header.classList.remove('menu-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open navigation');
+            };
+            toggle.addEventListener('click', () => {
+                const open = header.classList.toggle('menu-open');
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+            });
+            nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') closeMenu();
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 760) closeMenu();
+            });
+        })();
+    </script>
+
 </body>
 </html>
