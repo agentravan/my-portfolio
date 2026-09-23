@@ -1828,3 +1828,68 @@ button {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* Final mobile overflow guard — prevents any hero element from exceeding viewport */
+@media (max-width: 760px) {
+  .hero-grid,
+  .hero-copy,
+  .hero-modern .hero-text,
+  .hero-modern .subtitle,
+  .cta-group,
+  .hero-metrics {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero-modern h1,
+  .hero-modern h1 span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .hero-modern h1 span {
+    display: block;
+  }
+
+  .hero-modern .hero-text {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .cta-group {
+    overflow: hidden;
+  }
+
+  .cta-group .btn {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: normal;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-metrics span {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  section > h2 {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-metrics strong {
+    font-size: 15px;
+  }
+}
