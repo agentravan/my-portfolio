@@ -1258,3 +1258,13 @@ footer p { color: #59667b; font-size: 11px; }
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-7px); }
 }
+
+
+/* Single-photo layout */
+#about .about-content {
+  grid-template-columns: 1fr;
+  max-width: 920px;
+}
+#about .about-text {
+  max-width: 900px;
+}
